@@ -22,10 +22,10 @@ default-http-backend-2657704409-qgwdd   1/1       Running   0          28s
 
 ## Custom Template and Other Configs
 
-```
-➜  kubectl -n kube-system create configmap nginx-template --from-file=nginx.tmpl                 
+```console
+$ kubectl -n kube-system create configmap nginx-template --from-file=nginx.tmpl                 
 configmap "nginx-template" created
-➜  kubectl apply -f nginx-mtail-config-gen.yaml 
+$ kubectl apply -f nginx-mtail-config-gen.yaml 
 configmap "nginx-mtail-template" created
 ```
 
@@ -34,6 +34,6 @@ configmap "nginx-mtail-template" created
 You can deploy the controller as follows:
 
 ```console
-➜  manifests kc apply -f nginx-ingress-controller.yaml 
+$ kc apply -f nginx-ingress-controller.yaml 
 deployment "nginx-ingress-controller" created
 ```
