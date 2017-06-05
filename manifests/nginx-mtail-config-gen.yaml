@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-mtail-template
+  namespace: kube-system
+data:
+  config.yaml: |
+    backends:
+      - host: ingress.goutham.local
+        paths:
+          - name: /hello
+            regexp: \/hello\S+

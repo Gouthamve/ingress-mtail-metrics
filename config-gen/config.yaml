@@ -1,0 +1,9 @@
+backends:
+  - host: ingress.goutham.local
+    paths:
+      - name: /hello
+        regexp: \/hello\S+
+  - host: yolo.me
+    paths:
+      - name: /
+        regexp: \/
