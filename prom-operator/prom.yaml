@@ -1,0 +1,47 @@
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ServiceMonitor
+metadata:
+  name: ingress
+  labels:
+    own: goutham 
+spec:
+  selector:
+    matchLabels:
+      type: ingress 
+  endpoints:
+  - port: http-metrics 
+    interval: 10s
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: prometheus
+spec:
+  type: NodePort
+  ports:
+  - name: web
+    nodePort: 30100
+    port: 9090
+    protocol: TCP
+    targetPort: web
+  selector:
+    prometheus: goutham 
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: Prometheus
+metadata:
+  name: prom 
+  labels:
+    prometheus: goutham 
+spec:
+  version: v1.6.3
+  serviceMonitorSelector:
+    matchLabels:
+      own: goutham
+  resources:
+    requests:
+      # 2Gi is default, but won't schedule if you don't have a node with >2Gi
+      # memory. Modify based on your target and time-series count for
+      # production use. This value is mainly meant for demonstration/testing
+      # purposes.
+      memory: 400Mi

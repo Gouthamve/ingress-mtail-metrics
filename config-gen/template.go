@@ -39,60 +39,60 @@ const upstream = `
 
   # 5ms bucket.
   $request_seconds * 1000 + $request_milliseconds < 5 {
-    nginx_http_request_time_milliseconds["5"]["{{.Host}}"][$request_method][$status]["{{.PathName}}"][$upstream_addr]++
+    nginx_http_request_time_milliseconds_bucket["5"]["{{.Host}}"][$request_method][$status]["{{.PathName}}"][$upstream_addr]++
   }
 
   # 10ms bucket.
   $request_seconds * 1000 + $request_milliseconds < 10 {
-    nginx_http_request_time_milliseconds["10"]["{{.Host}}"][$request_method][$status]["{{.PathName}}"][$upstream_addr]++
+    nginx_http_request_time_milliseconds_bucket["10"]["{{.Host}}"][$request_method][$status]["{{.PathName}}"][$upstream_addr]++
   }
 
   # 25ms bucket.
   $request_seconds * 1000 + $request_milliseconds < 25 {
-    nginx_http_request_time_milliseconds["25"]["{{.Host}}"][$request_method][$status]["{{.PathName}}"][$upstream_addr]++
+    nginx_http_request_time_milliseconds_bucket["25"]["{{.Host}}"][$request_method][$status]["{{.PathName}}"][$upstream_addr]++
   }
 
   # 50ms bucket.
   $request_seconds * 1000 + $request_milliseconds < 50 {
-    nginx_http_request_time_milliseconds["50"]["{{.Host}}"][$request_method][$status]["{{.PathName}}"][$upstream_addr]++
+    nginx_http_request_time_milliseconds_bucket["50"]["{{.Host}}"][$request_method][$status]["{{.PathName}}"][$upstream_addr]++
   }
 
   # 100ms bucket.
   $request_seconds * 1000 + $request_milliseconds < 100 {
-    nginx_http_request_time_milliseconds["100"]["{{.Host}}"][$request_method][$status]["{{.PathName}}"][$upstream_addr]++
+    nginx_http_request_time_milliseconds_bucket["100"]["{{.Host}}"][$request_method][$status]["{{.PathName}}"][$upstream_addr]++
   }
 
   # 250ms bucket.
   $request_seconds * 1000 + $request_milliseconds < 250 {
-    nginx_http_request_time_milliseconds["250"]["{{.Host}}"][$request_method][$status]["{{.PathName}}"][$upstream_addr]++
+    nginx_http_request_time_milliseconds_bucket["250"]["{{.Host}}"][$request_method][$status]["{{.PathName}}"][$upstream_addr]++
   }
 
   # 500ms bucket.
   $request_seconds * 1000 + $request_milliseconds < 500 {
-    nginx_http_request_time_milliseconds["500"]["{{.Host}}"][$request_method][$status]["{{.PathName}}"][$upstream_addr]++
+    nginx_http_request_time_milliseconds_bucket["500"]["{{.Host}}"][$request_method][$status]["{{.PathName}}"][$upstream_addr]++
   }
 
   # 1s bucket.
   $request_seconds * 1000 + $request_milliseconds < 1000 {
-    nginx_http_request_time_milliseconds["1000"]["{{.Host}}"][$request_method][$status]["{{.PathName}}"][$upstream_addr]++
+    nginx_http_request_time_milliseconds_bucket["1000"]["{{.Host}}"][$request_method][$status]["{{.PathName}}"][$upstream_addr]++
   }
 
   # 2.5s bucket.
   $request_seconds * 1000 + $request_milliseconds < 2500 {
-    nginx_http_request_time_milliseconds["2500"]["{{.Host}}"][$request_method][$status]["{{.PathName}}"][$upstream_addr]++
+    nginx_http_request_time_milliseconds_bucket["2500"]["{{.Host}}"][$request_method][$status]["{{.PathName}}"][$upstream_addr]++
   }
 
   # 5s bucket.
   $request_seconds * 1000 + $request_milliseconds < 5000 {
-    nginx_http_request_time_milliseconds["5000"]["{{.Host}}"][$request_method][$status]["{{.PathName}}"][$upstream_addr]++
+    nginx_http_request_time_milliseconds_bucket["5000"]["{{.Host}}"][$request_method][$status]["{{.PathName}}"][$upstream_addr]++
   }
 
   # 10s bucket.
   $request_seconds * 1000 + $request_milliseconds < 10000 {
-    nginx_http_request_time_milliseconds["10000"]["{{.Host}}"][$request_method][$status]["{{.PathName}}"][$upstream_addr]++
+    nginx_http_request_time_milliseconds_bucket["10000"]["{{.Host}}"][$request_method][$status]["{{.PathName}}"][$upstream_addr]++
   }
 
   # "inf" bucket, also the total number of requests.
-  nginx_http_request_time_milliseconds["inf"]["{{.Host}}"][$request_method][$status]["{{.PathName}}"][$upstream_addr]++
+  nginx_http_request_time_milliseconds_bucket["inf"]["{{.Host}}"][$request_method][$status]["{{.PathName}}"][$upstream_addr]++
 }
 `

@@ -71,7 +71,7 @@ spec:
 
       initContainers:
       - name: mtail-config
-        image: gouthamve/nginx-mtail-configgen
+        image: gouthamve/nginx-mtail-configgen:v0.1
         command:
         - /main
         - /config/config.yaml

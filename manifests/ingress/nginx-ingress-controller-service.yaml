@@ -5,6 +5,7 @@ metadata:
   namespace: kube-system
   labels:
     k8s-app: nginx-ingress-controller-service
+    type: ingress
   annotations:
     prometheus.io/port: '3903'
     prometheus.io/scrape: 'true'
